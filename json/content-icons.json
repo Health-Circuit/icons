@@ -2,5 +2,17 @@
   {
     "key": "info",
     "url": "https://raw.githubusercontent.com/Health-Circuit/icons/main/info.svg"
+  },
+  {
+    "key": "strength",
+    "url": "https://raw.githubusercontent.com/Health-Circuit/icons/main/icon-krafttraining.svg"
+  },
+  {
+    "key": "arms",
+    "url": "https://raw.githubusercontent.com/Health-Circuit/icons/main/Arm.svg"
+  },
+  {
+    "key": "legs",
+    "url": "https://raw.githubusercontent.com/Health-Circuit/icons/main/Bein.svg"
   }
 ]
