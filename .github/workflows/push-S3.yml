@@ -25,7 +25,7 @@ jobs:
         run: |
           echo "targetEnv=dev" >> $GITHUB_ENV
           echo "branchRef=develop" >> $GITHUB_ENV
-          echo "AWS_BUCKET=hc-treatment-content-delivery-dev"
+          echo "AWS_BUCKET=hc-treatment-content-delivery-dev" >> $GITHUB_ENV
       - name: Setup vars qa
         if: ${{ github.event.inputs.env == 'qa' }}
         run: |
@@ -59,6 +59,6 @@ jobs:
         with:
           aws_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{env.AWS_BUCKET }}
+          aws_bucket: ${{env.AWS_BUCKET}}
           source_dir: 'json'
           destination_dir: ''
