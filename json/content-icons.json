@@ -1,11 +1,11 @@
 [
   {
     "key": "info",
-    "url": "https://raw.githubusercontent.com/Health-Circuit/icons/main/info.svg"
+    "url": "#S3#content-icons/info.svg"
   },
   {
     "key": "strength",
-    "url": "https://raw.githubusercontent.com/Health-Circuit/icons/main/icon-krafttraining.svg"
+    "url": "#S3#content-icons/icon-krafttraining.svg"
   },
   {
     "key": "arms",
@@ -13,6 +13,6 @@
   },
   {
     "key": "legs",
-    "url": "https://raw.githubusercontent.com/Health-Circuit/icons/main/Bein.svg"
+    "url": "#S3#content-icons/Bein.svg"
   }
 ]
