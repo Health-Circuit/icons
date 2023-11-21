@@ -1,0 +1,42 @@
+[
+  {
+    "key": "info",
+    "url": "#S3#content-icons/info.svg"
+  },
+  {
+    "key": "warm-up",
+    "url": "#S3#content-icons/icon-aufwarmen.svg"
+  },
+  {
+    "key": "strength",
+    "url": "#S3#content-icons/icon-krafttraining.svg"
+  },
+  {
+    "key": "legs",
+    "url": "#S3#content-icons/Bein.svg"
+  },
+  {
+    "key": "arms",
+    "url": "#S3#content-icons/Arm.svg"
+  },
+  {
+    "key": "back",
+    "url": "#S3#content-icons/Torso.svg"
+  },
+  {
+    "key": "belly",
+    "url": "#S3#content-icons/Bauch.svg"
+  },
+  {
+    "key": "stretching",
+    "url": "#S3#content-icons/icon-beweglichkeit.svg"
+  },
+  {
+    "key": "balance",
+    "url": "#S3#content-icons/icon-gleichgewicht.svg"
+  },
+  {
+    "key": "cardio",
+    "url": "#S3#content-icons/icon-herz-kreislauftraining.svg"
+  }
+]

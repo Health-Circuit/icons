@@ -1,0 +1,64 @@
+name: Push to S3
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "develop" branch
+  push:
+    branches: [ "develop" , "main" ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target Environment"
+        required: true
+        default: 'dev'
+
+env:
+  AWS_REGION: eu-west-3  
+
+jobs:
+  runner:
+    name: Push to S3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup vars develop
+        if: ${{ github.event_name == 'push' && github.ref_name == 'develop' || github.event.inputs.env == 'dev' }}
+        run: |
+          echo "targetEnv=dev" >> $GITHUB_ENV
+          echo "branchRef=develop" >> $GITHUB_ENV
+          echo "AWS_BUCKET=hc-treatment-content-delivery-dev" >> $GITHUB_ENV
+      - name: Setup vars qa
+        if: ${{ github.event.inputs.env == 'qa' }}
+        run: |
+          echo "targetEnv=qa" >> $GITHUB_ENV
+          echo "branchRef=develop" >> $GITHUB_ENV
+          echo "AWS_BUCKET=hc-treatment-content-delivery-qa"
+      - name: Setup vars staging
+        if: ${{ github.event.inputs.env == 'staging' }}
+        run: |
+          echo "targetEnv=staging" >> $GITHUB_ENV
+          echo "branchRef=main" >> $GITHUB_ENV
+          echo "AWS_BUCKET=hc-treatment-content-delivery-staging"
+      - name: Setup vars prod
+        if: ${{ github.event_name == 'push' && github.ref_name == 'main' || github.event.inputs.env == 'prod' }}
+        run: |
+          echo "targetEnv=prod" >> $GITHUB_ENV
+          echo "branchRef=main" >> $GITHUB_ENV
+          echo "AWS_BUCKET=hc-treatment-content-delivery-prod"
+      
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout 
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.branchRef }}
+          ##token: ${{ secrets.PATOKEN }}   ## if private repo 
+
+      # Push to S3
+      - name: Upload S3
+        uses: shallwefootball/s3-upload-action@master
+        id: S3
+        with:
+          aws_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket: ${{env.AWS_BUCKET}}
+          source_dir: 'json'
+          destination_dir: ''
