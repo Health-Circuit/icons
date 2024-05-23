@@ -38,5 +38,9 @@
   {
     "key": "cardio",
     "url": "#S3#content-icons/icon-herz-kreislauftraining.svg"
+  },
+  {
+    "key": "tip-500-de.ico",
+    "url": "#S3#content-icons/tip-500-de.ico"
   }
 ]
